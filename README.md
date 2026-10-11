@@ -93,10 +93,10 @@ curl -X POST localhost:8080/messages -H "X-Api-Key: demo-reporter" -H "Content-T
 - [x] no live OpenAI key (stub agent; live path optional, about $1 cap)
 - [x] no Docker in CI (Dockerfile provided, integration tests run against uvicorn)
 - [x] no cloud deploy executed (docs only)
-- [ ] solo reviewer (self-review with checklist), only if no peer is assigned
+- [x] solo reviewer (self-review with checklist); mentor review requested on PR #1, pending
 
 ## Submission checklist
 - [x] proposal + skill_matrix + map
 - [x] five docs linked
-- [ ] peer review completed
-- [ ] slides PDF in docs/ and demo command documented
+- [x] self-review completed (review_log.md); mentor review pending
+- [x] slides PDF in docs/ and demo command documented

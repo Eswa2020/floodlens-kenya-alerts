@@ -1,0 +1,23 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: ruff check .
+      - run: python scripts/diagnose_fixture.py fixtures/flood_reports_sample.jsonl
+      - run: pytest -q
+      - run: pytest tests/test_security_smoke.py -q
+      - name: Golden-set eval (gate)
+        run: python evals/run_eval.py evals/golden.jsonl
+      - name: Planning and docs checkers
+        run: |
+          python check_proposal.py
+          python check_integration_map.py
+          python check_doc_links.py
+          python check_review_doc.py

@@ -1,0 +1,2 @@
+# G08 How residents should report flooding
+A useful report says where the flooding is (estate, road or landmark), what is flooded (road, houses, vehicles), whether people are stranded, and when it started. A photo helps, but residents should not put themselves in danger to take one, and should avoid photographing people's faces. Do not share phone numbers or personal details in the report text. In an emergency, call the county emergency line first, then send the report.

@@ -1,0 +1,2 @@
+# G06 Where official warnings come from
+Official weather forecasts and flood advisories come from the Kenya Meteorological Department (KMD). National disaster coordination is handled by the National Disaster Operations Centre (NDOC). County governments run disaster management offices and publish their own emergency contact lines. The Kenya Red Cross Society supports response and evacuation. FloodLens is decision support for officers; it is not an official warning service. Residents should always confirm with these official channels.

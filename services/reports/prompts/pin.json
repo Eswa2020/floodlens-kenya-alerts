@@ -1,0 +1,11 @@
+{
+  "prompt_version": "alert_guidance_v1",
+  "prompt_file": "alert_guidance_v1.txt",
+  "prompt_sha256": "04009bb9d44b5fba3696304907182bd4b8a10659455d9362772aaf46025e950e",
+  "model_id": "gpt-4o-mini-2024-07-18",
+  "stub_model_id": "stub-template-v1",
+  "retriever": "keyword-idf-v1",
+  "image_encoder": "fixture-tags-v1 (live candidate: openai/clip-vit-base-patch32, revision to pin before use)",
+  "pinned_on": "2026-10-10",
+  "notes": "Edit the prompt -> bump prompt_version -> update prompt_sha256. tests/unit/test_pins.py fails otherwise."
+}

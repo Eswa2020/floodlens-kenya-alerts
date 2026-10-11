@@ -1,0 +1,20 @@
+[
+  {"artefact": "api", "path": "services/reports", "status": "adapted", "source_week": 6,
+   "note": "triage API pattern (FastAPI + API-key auth + version header) reshaped for flood reports"},
+  {"artefact": "tool", "path": "agents/tools/flood_tools.py", "status": "adapted", "source_week": 7,
+   "note": "MCP logistics tool pattern: structured dicts, no raw text or PII across the tool boundary"},
+  {"artefact": "mcp_server", "path": "agents/mcp_server.py", "status": "adapted", "source_week": 6,
+   "note": "FastMCP server; agent connects over an in-memory MCP session"},
+  {"artefact": "pins", "path": "services/reports/prompts/pin.json", "status": "adapted", "source_week": 8,
+   "note": "prompt version + sha256, model ids, retriever and image encoder"},
+  {"artefact": "smoke", "path": "tests/test_security_smoke.py", "status": "adapted", "source_week": 9,
+   "note": "adds Kenyan phone redaction, no-PII-in-logs and person-photo redaction"},
+  {"artefact": "rag", "path": "services/reports/rag.py", "status": "adapted", "source_week": 3,
+   "note": "keyword-IDF retriever with citations over knowledge/"},
+  {"artefact": "multimodal_lane", "path": "services/reports/scoring.py", "status": "adapted", "source_week": 10,
+   "note": "cross-modal mismatch lane: report text vs image evidence, review queue"},
+  {"artefact": "cost", "path": "docs/cost_analysis.md", "status": "adapted", "source_week": 7,
+   "note": "teaching cost table with assumptions"},
+  {"artefact": "fine_tuned_model", "path": "docs/build_checkpoint.md", "status": "deferred", "source_week": 4,
+   "note": "kenya-flood-finetune stays out of the build; deferral explained in build_checkpoint"}
+]

@@ -1,0 +1,2 @@
+# G03 Riverside and low-lying settlements
+Homes near rivers, drainage channels and low ground flood first and fastest. During heavy rain, watch the river level and the colour and speed of the water. A sudden rise or muddy, fast water upstream is a warning sign. Agree a meeting point with neighbours on higher ground. Keep important items raised off the floor. Informal settlements often have fewer reports and fewer phones, so a lack of reports does not mean a lack of risk.
