@@ -1,0 +1,9 @@
+fastapi==0.120.0
+uvicorn==0.38.0
+httpx==0.28.1
+pydantic==2.12.3
+pydantic-settings==2.11.0
+mcp==1.26.0
+openai==2.6.1
+pytest==8.4.2
+ruff==0.14.2

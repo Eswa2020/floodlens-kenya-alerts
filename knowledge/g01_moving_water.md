@@ -1,0 +1,2 @@
+# G01 Moving water and roads
+Do not walk, cycle or drive through moving floodwater. Even shallow moving water can knock a person over, and a small amount of fast water can float a car or a matatu. Water hides open drains, missing manhole covers and washed-out road edges. If a road or bridge is submerged, turn around and use another route. Boda boda riders should not attempt flooded crossings. Wait for the water to go down and for the county or police to reopen the road.

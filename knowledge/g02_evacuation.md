@@ -1,0 +1,2 @@
+# G02 When and how to evacuate
+Leave early if water is rising toward your house, if a river is overflowing nearby, or if county officials advise you to move. Go to higher ground or a designated evacuation centre named by the county. Take identity documents, medicine, drinking water, a charged phone and a torch. Help children, older people and people with disabilities to move first. Do not return home until officials say the area is safe.

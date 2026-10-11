@@ -1,0 +1,33 @@
+{
+  "project": "FloodLens Kenya",
+  "path": "domain-alternative",
+  "domain": "Urban and riverine flood alerting (decision support for county duty officers)",
+  "tools": ["flood_report", "guidance_lookup", "review_queue"],
+  "route_keywords": {
+    "review_queue": ["review queue", "pending alerts", "pending reports", "show queue", "list queue"],
+    "guidance_lookup": ["what should", "how do i", "how should", "is it safe", "evacuat", "advice", "guidance", "nifanye nini", "tufanye nini"],
+    "flood_report": []
+  },
+  "counties": ["Nairobi", "Kisumu", "Tana River"],
+  "languages": ["en", "sw", "sheng"],
+  "scoring": {
+    "draft_threshold": 0.5,
+    "low_priority_below": 0.2,
+    "always_review_languages": ["sw", "sheng"]
+  },
+  "eval_gate": {
+    "min_decision_accuracy": 0.85,
+    "max_missed_alarms": 0
+  },
+  "fixture": {
+    "path": "fixtures/flood_reports_sample.jsonl",
+    "min_rows": 200,
+    "max_rows": 500
+  },
+  "official_channels": [
+    "Kenya Meteorological Department (KMD) forecasts and advisories",
+    "National Disaster Operations Centre (NDOC)",
+    "County emergency and disaster management lines (as published by your county government)",
+    "Kenya Red Cross Society"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "url": "http://127.0.0.1:8080/health",
+  "n": 10,
+  "p50_ms": 6.46,
+  "p95_ms": 8.06,
+  "max_ms": 8.06,
+  "measured_at": "2026-10-11T07:22:33+00:00",
+  "machine": "Windows AMD64 / Python 3.14.6",
+  "caption": "laptop teaching stub; not a production SLA"
+}

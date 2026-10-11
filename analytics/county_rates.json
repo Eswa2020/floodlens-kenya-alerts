@@ -1,0 +1,109 @@
+{
+  "by_county": {
+    "Kisumu": {
+      "n": 78,
+      "alert_draft_rate": 0.372,
+      "review_rate": 0.397,
+      "low_priority_rate": 0.231
+    },
+    "Nairobi": {
+      "n": 65,
+      "alert_draft_rate": 0.492,
+      "review_rate": 0.338,
+      "low_priority_rate": 0.169
+    },
+    "Tana River": {
+      "n": 77,
+      "alert_draft_rate": 0.468,
+      "review_rate": 0.39,
+      "low_priority_rate": 0.143
+    }
+  },
+  "vocab_gaps": {
+    "sw": [
+      [
+        "imejaa",
+        9
+      ],
+      [
+        "magari",
+        9
+      ],
+      [
+        "hayawezi",
+        9
+      ],
+      [
+        "kupita",
+        9
+      ],
+      [
+        "umefurika",
+        8
+      ],
+      [
+        "karibu",
+        8
+      ],
+      [
+        "wamekwama",
+        8
+      ],
+      [
+        "nyingi",
+        8
+      ],
+      [
+        "zimefurika",
+        8
+      ],
+      [
+        "minjila",
+        4
+      ]
+    ],
+    "sheng": [
+      [
+        "bana",
+        10
+      ],
+      [
+        "place",
+        5
+      ],
+      [
+        "imeflood",
+        5
+      ],
+      [
+        "chini",
+        5
+      ],
+      [
+        "kumefurika",
+        5
+      ],
+      [
+        "mtaa",
+        5
+      ],
+      [
+        "mathree",
+        5
+      ],
+      [
+        "zimekwama",
+        5
+      ],
+      [
+        "imeingia",
+        5
+      ],
+      [
+        "keja",
+        5
+      ]
+    ]
+  },
+  "caveat": "Synthetic teaching fixture. Low report counts are not low risk (unequal phone access)."
+}

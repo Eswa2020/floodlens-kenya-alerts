@@ -1,0 +1,121 @@
+{
+  "gold": {
+    "n": 34,
+    "score": 1.0,
+    "correct": 34,
+    "route_accuracy": 1.0,
+    "missed_alarms": 0,
+    "floods_n": 20,
+    "false_alarms": 0,
+    "non_floods_n": 8,
+    "errors": []
+  },
+  "full_fixture": {
+    "n": 300,
+    "score": 0.973,
+    "correct": 292,
+    "route_accuracy": 0.983,
+    "missed_alarms": 0,
+    "floods_n": 170,
+    "false_alarms": 0,
+    "non_floods_n": 50,
+    "errors": [
+      {
+        "id": "FR-018",
+        "scenario": "hard_guidance",
+        "expected": [
+          "guidance_lookup",
+          "n/a"
+        ],
+        "got": [
+          "flood_report",
+          "review"
+        ]
+      },
+      {
+        "id": "FR-037",
+        "scenario": "hard_guidance",
+        "expected": [
+          "guidance_lookup",
+          "n/a"
+        ],
+        "got": [
+          "flood_report",
+          "review"
+        ]
+      },
+      {
+        "id": "FR-068",
+        "scenario": "hard_partial_flood",
+        "expected": [
+          "flood_report",
+          "draft_alert"
+        ],
+        "got": [
+          "flood_report",
+          "review"
+        ]
+      },
+      {
+        "id": "FR-093",
+        "scenario": "hard_guidance",
+        "expected": [
+          "guidance_lookup",
+          "n/a"
+        ],
+        "got": [
+          "flood_report",
+          "review"
+        ]
+      },
+      {
+        "id": "FR-133",
+        "scenario": "hard_partial_flood",
+        "expected": [
+          "flood_report",
+          "draft_alert"
+        ],
+        "got": [
+          "flood_report",
+          "review"
+        ]
+      },
+      {
+        "id": "FR-170",
+        "scenario": "hard_guidance",
+        "expected": [
+          "guidance_lookup",
+          "n/a"
+        ],
+        "got": [
+          "flood_report",
+          "review"
+        ]
+      },
+      {
+        "id": "FR-206",
+        "scenario": "hard_partial_flood",
+        "expected": [
+          "flood_report",
+          "draft_alert"
+        ],
+        "got": [
+          "flood_report",
+          "review"
+        ]
+      },
+      {
+        "id": "FR-223",
+        "scenario": "hard_guidance",
+        "expected": [
+          "guidance_lookup",
+          "n/a"
+        ],
+        "got": [
+          "flood_report",
+          "review"
+        ]
+      }
+    ]
+  }
+}

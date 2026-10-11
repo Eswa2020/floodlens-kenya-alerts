@@ -1,0 +1,189 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>FloodLens Kenya</title>
+<style>
+@page { size: 1280px 720px; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; color: #12263a; }
+.slide { width: 1280px; height: 720px; padding: 56px 72px; position: relative; page-break-after: always; background: #f7fafc; overflow: hidden; }
+.slide::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 10px; background: #1f6f8b; }
+.kicker { font-size: 15px; letter-spacing: .14em; text-transform: uppercase; color: #1f6f8b; font-weight: 700; }
+h1 { font-size: 50px; line-height: 1.12; margin: 14px 0 34px; font-weight: 750; }
+h2 { font-size: 28px; margin-bottom: 10px; color: #1f6f8b; }
+p, li { font-size: 26px; line-height: 1.5; }
+ul { padding-left: 30px; } li { margin-bottom: 14px; }
+.foot { position: absolute; bottom: 26px; left: 72px; right: 72px; display: flex; justify-content: space-between; font-size: 13px; color: #6b7c8f; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.card { background: #fff; border: 1px solid #d9e3ec; border-radius: 10px; padding: 26px 28px; }
+.big { font-size: 72px; font-weight: 800; color: #1f6f8b; line-height: 1; }
+.lbl { font-size: 20px; color: #4b5d70; margin-top: 6px; }
+table { border-collapse: collapse; width: 100%; font-size: 22px; }
+th, td { text-align: left; padding: 12px 12px; border-bottom: 1px solid #d9e3ec; }
+th { color: #1f6f8b; font-size: 14px; text-transform: uppercase; letter-spacing: .06em; }
+code { font-family: Consolas, "SFMono-Regular", monospace; background: #e6eef5; padding: 1px 6px; border-radius: 4px; font-size: .9em; }
+.flow { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+.box { background: #fff; border: 2px solid #1f6f8b; border-radius: 8px; padding: 18px 16px; font-size: 21px; font-weight: 600; text-align: center; min-width: 120px; }
+.box small { display: block; font-weight: 400; color: #4b5d70; font-size: 15px; margin-top: 3px; }
+.gate { border-color: #b5452f; color: #b5452f; }
+.arr { font-size: 26px; color: #1f6f8b; }
+.title { background: #12263a; color: #fff; }
+.title::before { background: #4fb3c8; }
+.title h1 { font-size: 64px; color: #fff; margin-top: 150px; }
+.title .kicker { color: #4fb3c8; }
+.title p { color: #c9d8e4; font-size: 24px; }
+.title .foot { color: #8fa6ba; }
+.ok { color: #1d7a46; font-weight: 700; } .no { color: #b5452f; font-weight: 700; }
+</style></head><body>
+
+
+
+<section class="slide">
+  <div class="kicker">FloodLens Kenya · Esther Wairimu Kamau · 1 Problem and user</div>
+  <h1>Officers get more flood reports than they can check</h1>
+  <div class="cols">
+    <div><ul>
+      <li>Reports arrive as photo + text, in <b>English, Kiswahili and Sheng</b></li>
+      <li>Some are real, some are old photos, some try to trigger alerts</li>
+      <li>Duty officers in Nairobi, Kisumu and Tana River decide what to escalate</li>
+    </ul></div>
+    <div class="card"><h2>Design principle</h2>
+      <p>A <b>missed alarm</b> costs more than a false one. So nothing is ever dropped, and nothing is ever sent without a person approving it.</p></div>
+  </div>
+  <div class="foot"><span>FloodLens Kenya</span><span>proposal.md</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">2 · Path chosen and why</div>
+  <h1>Domain path: built from my own flood work</h1>
+  <ul>
+    <li><b>Week 4:</b> fine-tuned Llama-3.1-8B flood assistant (kenya-flood-finetune), declared stretch</li>
+    <li><b>Week 5:</b> multimodal red-zone classifier (floodlens-kenya), image evidence idea</li>
+    <li><b>Weeks 6 to 9:</b> API, MCP agent, cost, pins, security, all re-used as patterns</li>
+    <li><b>Week 10:</b> cross-modal mismatch lane + review queue, applied to flood reports</li>
+  </ul>
+  <p style="margin-top:18px">Same skill checklist as AfyaPlus, in a domain where I already have evidence.</p>
+  <div class="foot"><span>FloodLens Kenya</span><span>skill_matrix.md</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">3 · Architecture</div>
+  <h1>One service, one agent, one human gate</h1>
+  <div class="flow">
+    <div class="box">POST /messages<small>API key + role</small></div><span class="arr">→</span>
+    <div class="box">Agent<small>router from config.json</small></div><span class="arr">→</span>
+    <div class="box">MCP tools<small>score · guidance · queue</small></div>
+  </div>
+  <div class="flow">
+    <span class="arr">↳</span>
+    <div class="box">Guard + redact<small>injection, phones, faces</small></div><span class="arr">→</span>
+    <div class="box">Agreement score<small>report text vs photo</small></div><span class="arr">→</span>
+    <div class="box">RAG<small>8 guidance docs, cited</small></div>
+  </div>
+  <div class="flow">
+    <span class="arr">↳</span>
+    <div class="box">Draft alert<small>approved_by: null</small></div><span class="arr">→</span>
+    <div class="box gate">Duty officer approves<small>officer role only</small></div>
+  </div>
+  <p style="margin-top:22px">Pinned prompt + model in <code>pin.json</code>. The service refuses to start if the prompt hash does not match.</p>
+  <div class="foot"><span>FloodLens Kenya</span><span>docs/architecture.md</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">4 · Skill coverage</div>
+  <h1>Every required skill has a week and a file</h1>
+  <table>
+    <tr><th>Skill</th><th>Week</th><th>Where in the repo</th></tr>
+    <tr><td>API + auth</td><td>6</td><td><code>services/reports/app.py</code>, <code>auth.py</code></td></tr>
+    <tr><td>Agent + MCP tools</td><td>6 · 7</td><td><code>agents/agent.py</code>, <code>agents/mcp_server.py</code></td></tr>
+    <tr><td>Pins</td><td>8</td><td><code>services/reports/prompts/pin.json</code></td></tr>
+    <tr><td>Security smoke</td><td>9</td><td><code>tests/test_security_smoke.py</code></td></tr>
+    <tr><td>RAG</td><td>1 to 3</td><td><code>services/reports/rag.py</code> + <code>knowledge/</code></td></tr>
+    <tr><td>Multimodal lane</td><td>10</td><td><code>services/reports/scoring.py</code></td></tr>
+    <tr><td>Eval + tests</td><td>11</td><td><code>evals/</code>, <code>tests/</code>, CI</td></tr>
+  </table>
+  <div class="foot"><span>FloodLens Kenya</span><span>integration_map.json</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">5 · Live demo</div>
+  <h1>One command, end to end</h1>
+  <p><code>python run_all.py</code></p>
+  <ul style="margin-top:16px">
+    <li>Resident reports flooding in Kibera, with a phone number → <b>redacted</b>, alert drafted, <code>approved_by: null</code></li>
+    <li>Text says flood, photo shows a dry road → <b>low priority</b>, kept</li>
+    <li>Kiswahili report → always to a person</li>
+    <li>"Ignore previous instructions…" → held as <b>possible injection</b></li>
+    <li>Reporter tries to approve → <b>403</b>. Officer approves → done</li>
+  </ul>
+  <p style="margin-top:14px;color:#4b5d70">Backup: <code>docs/demo_transcript.md</code></p>
+  <div class="foot"><span>FloodLens Kenya</span><span>docs/user_guide.md</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">6 · Testing evidence</div>
+  <h1>Green tests, and the number that matters most</h1>
+  <div class="cols" style="grid-template-columns:1fr 1fr 1fr">
+    <div class="card"><div class="big">84</div><div class="lbl">pytest passed (unit + security smoke)</div></div>
+    <div class="card"><div class="big">34/34</div><div class="lbl">golden-set score (gold rows)</div></div>
+    <div class="card"><div class="big">0/170</div><div class="lbl">missed alarms on the full 300-row fixture</div></div>
+  </div>
+  <p style="margin-top:26px">Full fixture with deliberately hard rows: <b>0.973</b>. The eval found a real bug: "Ngong Road" was read as a road claim and pushed a real flood to low priority. Fixed with a floor: if the photo shows water, a person always sees it.</p>
+  <div class="foot"><span>FloodLens Kenya</span><span>docs/build_checkpoint.md</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">7 · Security and compliance</div>
+  <h1>Reports are data, never instructions</h1>
+  <div class="cols">
+    <ul>
+      <li>API keys with roles; only officers see the queue or approve</li>
+      <li>Kenyan phone + email redaction before storage</li>
+      <li>No raw report text or PII in logs (tested)</li>
+      <li>Injection guard: no auto-draft if suspected</li>
+    </ul>
+    <ul>
+      <li>Photos with a person → privacy marker (Kenya DPA 2019)</li>
+      <li>MCP queue tool returns scores only</li>
+      <li><code>secret_refs.yaml</code> names secrets, never values</li>
+      <li>Live mode with no keys refuses every request</li>
+    </ul>
+  </div>
+  <div class="foot"><span>FloodLens Kenya</span><span>tests/test_security_smoke.py</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">8 · Cost</div>
+  <h1>$0 in CI, cents in production</h1>
+  <table>
+    <tr><th>Call type</th><th>Calls</th><th>Total</th><th>Assumption</th></tr>
+    <tr><td>Tests, CI, eval</td><td>0</td><td>$0</td><td>stub mode, no key</td></tr>
+    <tr><td>Thursday demo (optional live)</td><td>~10</td><td>~$0.002</td><td>cap is ~$1</td></tr>
+    <tr><td>Per 1,000 reports (live)</td><td>~650</td><td>~$0.13</td><td>gpt-4o-mini teaching estimate</td></tr>
+  </table>
+  <p style="margin-top:20px">The model is only called for draft alerts and guidance questions, never for every report.</p>
+  <div class="foot"><span>FloodLens Kenya</span><span>docs/cost_analysis.md</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">9 · What works vs deferred</div>
+  <h1>Honest status</h1>
+  <div class="cols">
+    <div class="card"><h2 class="ok">Works now</h2><ul>
+      <li>Full MWP in stub mode, one command</li><li>RAG with citations · MCP agent</li><li>Pins · security smoke · CI eval gate</li><li>County rates with n · vocab gaps</li></ul></div>
+    <div class="card"><h2 class="no">Deferred</h2><ul>
+      <li>Live LLM and live CLIP / classifier</li><li>Fine-tuned Llama-3.1-8B</li><li>Cloud deploy (documented only)</li><li>Database; real face detection</li></ul></div>
+  </div>
+  <div class="foot"><span>FloodLens Kenya</span><span>docs/build_checkpoint.md</span></div>
+</section>
+
+<section class="slide">
+  <div class="kicker">10 · Process and next steps</div>
+  <h1>Branches, review, and what comes next</h1>
+  <ul>
+    <li>Feature branches → pull requests → CI (ruff, pytest, smoke, eval gate) → peer review</li>
+    <li>Peer review outcome: see <code>review_log.md</code></li>
+    <li><b>Next:</b> live classifier on one county's imagery · Kiswahili/Sheng vocabulary from the gap report · pilot with a county disaster office</li>
+  </ul>
+  <p style="margin-top:22px">FloodLens is decision support, not an official warning service. Residents: KMD, NDOC, county emergency lines, Kenya Red Cross.</p>
+  <div class="foot"><span>FloodLens Kenya</span><span>Thank you</span></div>
+</section>
+</body></html>
