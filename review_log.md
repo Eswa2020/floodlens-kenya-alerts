@@ -5,4 +5,4 @@ One line per review: date, PR, author, reviewer, outcome. Reviews happen in PR c
 
 | Date | PR | Author | Reviewer | Outcome | Follow-ups |
 |---|---|---|---|---|---|
-| YYYY-MM-DD | #N | Esther Kamau | (assigned peer) | x/10 ticked | (commit or issue link) |
+| 2026-10-11 | #1 | Esther Kamau | Esther Kamau (self-review, solo fallback) | 10/10 ticked, CI green | Mentor review requested from Denis Kevogo on PR #1, pending |

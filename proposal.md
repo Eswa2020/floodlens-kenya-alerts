@@ -5,7 +5,7 @@
 It covers the same skill checklist as the AfyaPlus path (API and agent path, pins, security hygiene,
 eval/test, docs, one multimodal lane). Every skill is mapped to a programme week in `skill_matrix.md`.
 
-Mentor approval: ____________________ (name) on ____________ (date)
+Mentor approval: requested from Denis Kevogo on PR #1, 2026-10-11 (pending)
 
 ## Problem
 - **Who is blocked today:** county duty officers in Nairobi, Kisumu and Tana River receive community flood reports
