@@ -1,0 +1,20 @@
+{
+  "title": "FloodLens Kenya: Human-in-the-Loop Flood Alert Decision Support for County Duty Officers",
+  "upload_type": "software",
+  "version": "1.0.1",
+  "description": "<p>FloodLens Kenya is a flood alert decision-support service for county duty officers in Kenya. It scores how well a community flood report (text plus photo evidence) agrees with itself, grounds safety guidance in a small curated document set with citations, and drafts an alert that a duty officer must approve before anything is sent. It never broadcasts on its own and always points residents to official channels (Kenya Meteorological Department, National Disaster Operations Centre, county emergency lines, Kenya Red Cross).</p><p>The build includes a FastAPI service with API-key roles, an agent that calls tools over the Model Context Protocol (MCP), retrieval-augmented generation over eight guidance documents, pinned prompt and model versions, PII redaction (including Kenyan phone numbers), a security smoke suite, and a golden-set evaluation run in CI. Everything runs in stub mode without an API key on a 300-row synthetic fixture.</p><p>Results in stub mode: 84 tests passing; golden-set eval 1.000 (34/34) with 0/20 missed alarms and 0/8 false alarms; full fixture 0.973 (292/300) with 0/170 missed alarms. These are teaching-scale results on synthetic data, not a production evaluation.</p><p>Developed as the Module 4 capstone of the Moringa School AI Engineering programme, building on an earlier multimodal prototype (github.com/Eswa2020/floodlens-kenya).</p>",
+  "creators": [
+    { "name": "Kamau, Esther Wairimu", "orcid": "0009-0005-4916-0077" }
+  ],
+  "keywords": [
+    "flood early warning", "Kenya", "disaster risk management",
+    "human-in-the-loop", "decision support", "retrieval-augmented generation",
+    "Model Context Protocol", "AI agents", "multimodal AI",
+    "AI safety", "climate adaptation"
+  ],
+  "license": "MIT",
+  "language": "eng",
+  "related_identifiers": [
+    { "identifier": "https://github.com/Eswa2020/floodlens-kenya", "relation": "isDerivedFrom", "resource_type": "software" }
+  ]
+}
