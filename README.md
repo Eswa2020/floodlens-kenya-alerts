@@ -5,7 +5,7 @@ Flood alert **decision support** for county duty officers in Kenya. It scores ho
 **a duty officer must approve before anything is sent**. It never broadcasts on its own and always points residents to the
 official channels (Kenya Meteorological Department, National Disaster Operations Centre, county emergency lines, Kenya Red Cross).
 
-![ci](https://github.com/Eswa2020/floodlens-kenya-alerts/actions/workflows/ci.yml/badge.svg)
+![ci](https://github.com/Eswa2020/floodlens-kenya-alerts/actions/workflows/ci.yml/badge.svg) [![DOI](https://zenodo.org/badge/1414072567.svg)](https://doi.org/10.5281/zenodo.23433888)
 
 ## Overview
 Module 4 capstone, **domain alternative path** (`proposal.md`). One FastAPI service with API-key roles, an agent that
@@ -100,3 +100,6 @@ curl -X POST localhost:8080/messages -H "X-Api-Key: demo-reporter" -H "Content-T
 - [x] five docs linked
 - [x] self-review completed (review_log.md); mentor review pending
 - [x] slides PDF in docs/ and demo command documented
+
+## How to cite
+Kamau, E. W. (2026). *FloodLens Kenya: Human-in-the-Loop Flood Alert Decision Support for County Duty Officers*. Zenodo. https://doi.org/10.5281/zenodo.23433888
